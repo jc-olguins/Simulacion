@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package cuadradosmedios;
 
 import java.util.ArrayList;
@@ -107,29 +106,37 @@ public class Cuadraado1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         // TODO add your handling code here:
-        ArrayList<Integer> lista1= new ArrayList<>(); 
-        int numero=Integer.parseInt(jTextField1.getText());    
-        int i=0;
-do{
-        long cuadrado =numero*numero;
-        jTextArea1.append(cuadrado +"\n");
-        String digitos= String.valueOf(cuadrado);
-        if(digitos.length()%2==1)
-            { 
-                digitos= "0" + digitos;
-         } 
-        String extracto = digitos.substring(digitos.length()/2-2,digitos.length()/2+2);
-        jTextArea2.append(extracto +"\n");
-        numero= Integer.parseInt(extracto);
-        extracto="0." + extracto;
-        jTextArea3.append(extracto+"\n");
-       if(numero==0||lista1.contains(numero))
-           {
-      break;
+        ArrayList<Integer> lista1 = new ArrayList<>();
+        int numero = Integer.parseInt(jTextField1.getText());
+        int i = 0;
+        do {
+            long cuadrado = numero * numero;
+            jTextArea1.append(cuadrado + "\n");
+            String digitos = String.valueOf(cuadrado);
+            if (digitos.length() % 2 == 1) {
+                digitos = "0" + digitos;
+            }
+            String extracto = digitos.substring(digitos.length() / 2 - 2, digitos.length() / 2 + 2);
+            jTextArea2.append(extracto + "\n");
+            numero = Integer.parseInt(extracto);
+            lista1.add(numero);
+            extracto = "0." + extracto;            
+            jTextArea3.append(extracto + "\n");
+//            if (numero == 0 || lista1.contains(numero)) {
+//                break;
+//            }
+            for (int x = 0; x < lista1.size(); x++) {
+                int y=lista1.get(x);
+                System.out.println(lista1.get(x));
+                for (int j = 1; j < lista1.size(); j++) {
+                    if(y==lista1.get(j)){
+                        break;
+                    }
+                }
             }
 //i++;
-}while(true);
-    
+        } while (true);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
