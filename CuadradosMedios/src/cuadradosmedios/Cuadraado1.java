@@ -110,30 +110,36 @@ public class Cuadraado1 extends javax.swing.JFrame {
         int numero = Integer.parseInt(jTextField1.getText());
         int i = 0;
         do {
+            if (numero == 0) {//|| lista1.contains(numero)
+                break;
+            }
             long cuadrado = numero * numero;
-            jTextArea1.append(cuadrado + "\n");
+//            jTextArea1.append(cuadrado + "\n");
             String digitos = String.valueOf(cuadrado);
             if (digitos.length() % 2 == 1) {
                 digitos = "0" + digitos;
             }
             String extracto = digitos.substring(digitos.length() / 2 - 2, digitos.length() / 2 + 2);
-            jTextArea2.append(extracto + "\n");
+//            jTextArea2.append(extracto + "\n");
             numero = Integer.parseInt(extracto);
             lista1.add(numero);
-            extracto = "0." + extracto;            
-            jTextArea3.append(extracto + "\n");
-//            if (numero == 0 || lista1.contains(numero)) {
-//                break;
-//            }
+            String extracto1 = "0." + extracto;
+//            jTextArea3.append(extracto1 + "\n");
             for (int x = 0; x < lista1.size(); x++) {
-                int y=lista1.get(x);
+                int y = lista1.get(x);
                 System.out.println(lista1.get(x));
-                for (int j = 1; j < lista1.size(); j++) {
-                    if(y==lista1.get(j)){
-                        break;
+                for (int j = 0; j < lista1.size(); j++) {
+                    if (x != j) {
+                        int t = lista1.get(j);
+                        if (y == t) {
+                            return;
+                        }
                     }
                 }
             }
+            jTextArea1.append(cuadrado + "\n");
+            jTextArea2.append(extracto + "\n");
+            jTextArea3.append(extracto1 + "\n");
 //i++;
         } while (true);
 
