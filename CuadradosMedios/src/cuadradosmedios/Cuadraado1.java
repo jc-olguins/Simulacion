@@ -6,6 +6,7 @@
 package cuadradosmedios;
 
 import java.util.ArrayList;
+import Atxy2k.CustomTextField.RestrictedTextField;
 
 /**
  *
@@ -18,6 +19,16 @@ public class Cuadraado1 extends javax.swing.JFrame {
      */
     public Cuadraado1() {
         initComponents();
+        RestrictedTextField restricted = new RestrictedTextField(jTextField1);
+        restricted.setLimit(4);
+        restricted.setOnlyNums(true);
+        restricted.setOnlyText(true);
+        restricted.restore();
+        RestrictedTextField restricted1 = new RestrictedTextField(jTextField2);
+        restricted1.setLimit(4);
+        restricted1.setOnlyNums(true);
+        restricted1.setOnlyText(true);
+        restricted1.restore();
     }
 
     /**
@@ -38,10 +49,12 @@ public class Cuadraado1 extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Semilla");
+        jLabel1.setText("Semilla 1");
 
         jButton1.setText("Calcular");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -62,27 +75,34 @@ public class Cuadraado1 extends javax.swing.JFrame {
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
+        jLabel2.setText("semilla 2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(26, 26, 26)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
-                .addGap(51, 51, 51))
+                        .addComponent(jTextField1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(51, 51, 51))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +111,9 @@ public class Cuadraado1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
@@ -103,17 +125,26 @@ public class Cuadraado1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void limpiar() {
+        jTextArea1.setText("");
+        jTextArea2.setText("");
+        jTextArea3.setText("");
+    }
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        limpiar();
         // TODO add your handling code here:
         ArrayList<Integer> lista1 = new ArrayList<>();
-        int numero = Integer.parseInt(jTextField1.getText());
+        int numero1 = Integer.parseInt(jTextField1.getText());
+        int numero2 = Integer.parseInt(jTextField2.getText());
+        jTextField1.setText("");
+        jTextField2.setText("");
         int i = 0;
         do {
-            if (numero == 0) {//|| lista1.contains(numero)
+            if (numero1 == 0 || numero2 == 0) {//|| lista1.contains(numero)
                 break;
             }
-            long cuadrado = numero * numero;
+            long cuadrado = numero1 * numero1;
 //            jTextArea1.append(cuadrado + "\n");
             String digitos = String.valueOf(cuadrado);
             if (digitos.length() % 2 == 1) {
@@ -121,7 +152,7 @@ public class Cuadraado1 extends javax.swing.JFrame {
             }
             String extracto = digitos.substring(digitos.length() / 2 - 2, digitos.length() / 2 + 2);
 //            jTextArea2.append(extracto + "\n");
-            numero = Integer.parseInt(extracto);
+            int numero = Integer.parseInt(extracto);
             lista1.add(numero);
             String extracto1 = "0." + extracto;
 //            jTextArea3.append(extracto1 + "\n");
@@ -183,6 +214,7 @@ public class Cuadraado1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -190,5 +222,6 @@ public class Cuadraado1 extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
